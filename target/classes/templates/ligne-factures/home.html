@@ -1,0 +1,48 @@
+<html xmlns:th="http://www.thymeleaf.org"  lang="fr">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <title th:text="'Détail des lignes de la facture : '">Lignes de la Facture </title>
+        <div th:insert="~{fragments/script-styleFragment.html}"></div>
+
+    </head>
+
+    <div th:replace="~{fragments/headerFragment :: header}"></div>
+
+    <h1 th:text="'Détail des lignes de la facture : '+${facture.libelle}"></h1>
+
+    <body>
+        <section class="container mx-5 min-vh-100">
+
+            <!-------------------Détails des lignes de la factures ciblé------------------->
+            <table class="my-5 facture-list">
+                <thead>
+                <th>Quantité </th>
+                <th>Désignation </th>
+                <th>Prix Hors Taxe </th>
+                <th>T.V.A</th>
+                <th>Total</th>
+                </thead>
+                <tbody>
+                <tr th:each="ligne : ${facture.lignes}">
+                    <td th:text="${ligne.quantity}"></td>
+                    <td th:text="${ligne.designation}"></td>
+                    <td th:text="${ligne.prixHt}"></td>
+                    <td th:text="${ligne.tva.taux}"></td>
+                    <td th:text="${ligne.quantity * ligne.prixHt + (ligne.quantity * ligne.prixHt * ligne.tva.taux)}"></td>
+                </tr>
+
+                </tbody>
+            </table>
+
+            <a th:href="@{'/ligne/' + ${facture.id} + '/ajout'}">Ajouter une ligne à la facture</a><br>
+            <a th:href="@{'/detail/' + ${facture.id}}">Revenir au détail de la facture</a><br>
+            <a th:href="@{'/'}">Revenir au listing des factures</a>
+
+
+
+        </section>
+        <div th:insert="~{fragments/footerFragment.html}"></div>
+    </body>
+</html>

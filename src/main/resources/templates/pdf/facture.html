@@ -1,0 +1,44 @@
+<html xmlns:th="http://www.thymeleaf.org"  lang="fr">
+
+<head>
+  <title th:utext="'Facture n°' + ${facture.id}"></title>
+</head>
+<body>
+<h1 th:utext="'Facture n°' + ${facture.id}"></h1>
+
+<div th:text="'Émetteur : ' + ${facture.emeteur.raisonSociale}"></div>
+<div th:text="'SIRET : ' + ${facture.emeteur.siret}"></div>
+<div th:text="'Adresse : ' + ${facture.emeteur.numeroRue} + ' ' + ${facture.emeteur.rue} + ' ' + ${facture.emeteur.codePostal} + ' ' + ${facture.emeteur.ville}"></div>
+
+<br></br>
+
+<div th:text="'Destinataire : ' + ${facture.client.raisonSociale}"></div>
+<div th:text="'SIRET : ' + ${facture.client.siret}"></div>
+<div th:text="'Adresse : ' + ${facture.client.numeroRue} + ' ' + ${facture.client.rue} + ' ' + ${facture.client.codePostal} + ' ' + ${facture.client.ville}"></div>
+
+<br></br>
+
+<table class="table-active">
+  <thead>
+  <tr>
+    <th scope="col" class="text-light">Quantité</th>
+    <th scope="col" class="text-light">Description</th>
+    <th scope="col" class="text-light">Prix unitaire HT</th>
+    <th scope="col" class="text-light">TVA</th>
+    <th scope="col" class="text-light">Total HT</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="table-active" th:each="ligne: ${facture.lignes}">
+    <td class="text-light" th:text="${ligne.quantity}"></td>
+    <td class="text-light" th:text="${ligne.designation}"></td>
+    <td class="text-light" th:text="${ligne.prixHt}"></td>
+    <td class="text-light" th:text="${ligne.tva.libelle}"></td>
+    <td class="text-light" th:text="${ligne.quantity} * ${ligne.prixHt}"></td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+
+</html>

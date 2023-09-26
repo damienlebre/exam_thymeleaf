@@ -1,0 +1,9 @@
+.plage-list{
+    border-spacing: 25px;
+    border-collapse: separate;
+    margin: 10px;
+}
+
+.custom-button{
+    width: 110px !important
+}
