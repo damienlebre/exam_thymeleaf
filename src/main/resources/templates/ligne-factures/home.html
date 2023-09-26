@@ -18,19 +18,19 @@
             <!-------------------Détails des lignes de la factures ciblé------------------->
             <table class="my-5 facture-list">
                 <thead>
-                <th>Quantité </th>
-                <th>Désignation </th>
-                <th>Prix Hors Taxe </th>
-                <th>T.V.A</th>
-                <th>Total</th>
+                <th class="mx-2">Quantité </th>
+                <th class="mx-2">Désignation </th>
+                <th class="mx-2">Prix Hors Taxe </th>
+                <th class="mx-2">T.V.A</th>
+                <th class="mx-2">Total</th>
                 </thead>
                 <tbody>
                 <tr th:each="ligne : ${facture.lignes}">
-                    <td th:text="${ligne.quantity}"></td>
-                    <td th:text="${ligne.designation}"></td>
-                    <td th:text="${ligne.prixHt}"></td>
-                    <td th:text="${ligne.tva.taux}"></td>
-                    <td th:text="${ligne.quantity * ligne.prixHt + (ligne.quantity * ligne.prixHt * ligne.tva.taux)}"></td>
+                    <td  class="mx-2" th:text="${ligne.quantity}"></td>
+                    <td class="mx-2" th:text="${ligne.designation}"></td>
+                    <td class="mx-2" th:text="${ligne.prixHt}"></td>
+                    <td class="mx-2" th:text="${ligne.tva.taux}"></td>
+                    <td class="mx-2" th:text="${ligne.quantity * ligne.prixHt + (ligne.quantity * ligne.prixHt * ligne.tva.taux)}"></td>
                 </tr>
 
                 </tbody>

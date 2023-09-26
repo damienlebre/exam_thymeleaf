@@ -17,21 +17,21 @@
             <!-------------------liste des factures------------------->
             <table class="my-5 facture-list table-active">
                 <thead>
-                <th>Date Facturation</th>
-                <th>Date Payement</th>
-                <th>Libelle</th>
-                <th>Client</th>
-                <th>Emetteur</th>
-                <th>Actions</th>
+                <th class="mx-2">Date Facturation</th>
+                <th class="mx-2">Date Payement</th>
+                <th class="mx-2">Libelle</th>
+                <th class="mx-2">Client</th>
+                <th class="mx-2">Emetteur</th>
+                <th class="mx-2">Actions</th>
                 </thead>
                 <tbody>
                 <tr>
-                    <td><p th:text="${#dates.format(facture.dateFacture, 'dd/MM/yyyy')}"></p></td>
-                    <td><p th:text="${#dates.format(facture.datePayment, 'dd/MM/yyyy')}"></p></td>
-                    <td><p th:text="${facture.libelle}"></p></td>
-                    <td><p th:text="${facture.client.raisonSociale}"></p></td>
-                    <td><p th:text="${facture.emeteur.raisonSociale}"></p></td>
-                    <td><a th:href="@{/ligne/{id}(id=${facture.id})}">
+                    <td class="mx-2"><p th:text="${#dates.format(facture.dateFacture, 'dd/MM/yyyy')}"></p></td>
+                    <td class="mx-2"><p th:text="${#dates.format(facture.datePayment, 'dd/MM/yyyy')}"></p></td>
+                    <td class="mx-2"><p th:text="${facture.libelle}"></p></td>
+                    <td class="mx-2"><p th:text="${facture.client.raisonSociale}"></p></td>
+                    <td class="mx-2"><p th:text="${facture.emeteur.raisonSociale}"></p></td>
+                    <td class="mx-2"><a th:href="@{/ligne/{id}(id=${facture.id})}">
                         <button type="button" class="btn btn-outline-info btn-sm custom-button mb-2">Voir lignes de la Facture
                             <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
 
